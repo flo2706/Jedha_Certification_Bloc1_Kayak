@@ -2,25 +2,24 @@
 <h2 align="center">Bloc 1 : Build & Manage a Data Infrastructure</h2>
 
 <p align="center"><strong>One Case Study :</strong></p>
-
 <p align="center">Data Collection & Management : <em>Plan your trip with Kayak</em></p>
 
 ---
 
 ### Objectif du projet
 
-L'équipe marketing de **Kayak** souhaite créer une application qui recommandera les **meilleurs destinations et hôtels français** en fonction :
+L'équipe marketing de **Kayak** souhaite créer une application qui recommandera les **meilleures destinations et hôtels français** en fonction :
 
-- de la météo prévue dans les 7 prochains jours
-- des meilleurs hôtels disponibles de la région 
+- de la météo prévue dans les 7 prochains jours  
+- des meilleurs hôtels disponibles dans la région
 
 ---
 
 ### Données utilisées
 
-- **35 villes françaises** issues de _OneWeekIn.com_
-- Données météo via **OpenWeatherMap API**
-- Coordonnées via **Nominatim API**
+- **35 villes françaises** issues de _OneWeekIn.com_  
+- Données météo via **OpenWeatherMap API**  
+- Coordonnées via **Nominatim API**  
 - Hôtels scrappés depuis **Booking.com** avec **Scrapy** :
   - Nom, coordonnées, note, description, URL
 
@@ -43,14 +42,14 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 #### Carte 1 : Top 5 des villes météo
 
-- Créée avec **Plotly Express**
+- Réalisée avec **Plotly Express**
 - Affiche les villes les plus "ensoleillées"
 - Utilise un **score météo personnalisé** basé sur température, humidité, pluie, etc.
 
 #### Carte 2 : Top hôtels par ville (Streamlit)
 
 - Interface **Streamlit** avec **Folium**
-- Sélection d'une ville → affichage des meilleurs hôtels (avec note disponible)
+- Sélection d'une ville → affichage dynamique des meilleurs hôtels  
 - Chaque hôtel contient :
   - Nom
   - Note
@@ -62,7 +61,7 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 ### Technologies utilisées
 
 | Outil / Tech       | Rôle                              |
-| ------------------ | --------------------------------- |
+|--------------------|-----------------------------------|
 | Python             | Langage principal                 |
 | Pandas             | Traitement de données             |
 | Requests           | Appels API météo et géocodage     |
@@ -77,8 +76,25 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 ### Livrables
 
-- Un fichier .csv dans un bucket S3 contenant des info enrichies sur la météo et les hôtels pour chaque ville française (code + captures d'écran (livrable - bucketS3))
-- Une DB SQL Où l'on obtient les mêmes data nettoyées à partir de S3 (code + captures d'écran (livrable - DB))
-- 2 cartes contenant un top 5 des destinations (du 24/04/2025 au 30/04/2025) et un top 20 des hôtels des 35 villes (livrable - maps))
+- Un fichier `.csv` dans un bucket **AWS S3** contenant les données météo + hôtels enrichies  
+- Une **base SQL PostgreSQL** (hébergée sur **AWS RDS**) contenant les mêmes données  
+- Deux cartes interactives :
+  - **Top 5 des destinations météo** (24/04/2025 au 30/04/2025)
+  - **Top 20 hôtels** répartis sur 35 villes françaises
+
+---
+
+### Critères d’évaluation de l’infrastructure
+
+- **Simplicité et cohérence du projet d'infrastructure**
+- **Capacité de stockage suffisante pour un projet Big Data**
+- **Optimisation des coûts liés à la collecte, au stockage et à l'exploitation des données**
+- **Qualité des données extraites du Web vers le Data Lake (scraping, APIs)**
+- **Accessibilité rapide et fiable des données depuis le Data Warehouse**
+- **Robustesse et efficacité du pipeline ETL conçu**
+- **Conformité du processus de collecte aux normes RGPD**, notamment sur :
+  - la nature des données collectées
+  - leur stockage et leur utilisation
+  - la protection de la vie privée des utilisateurs
 
 ---
