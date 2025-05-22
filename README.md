@@ -1,17 +1,36 @@
 <h1 align="center">Jedha's ML Engineer Certificate</h1>
-<h2 align="center">Bloc 1 : Build & Manage a Data Infrastructure</h2>
+<h2 align="center">Bloc 1: Build & Manage a Data Infrastructure</h2>
 
-<p align="center"><strong>One Case Study :</strong></p>
-<p align="center">Data Collection & Management : <em>Plan your trip with Kayak</em></p>
+<p align="center"><strong>One Case Study:</strong></p>
+<p align="center">Data Collection & Management – <em>Plan Your Trip with Kayak</em> 🧳</p>
+<br>
+
+---
+
+### Contexte de l'entreprise
+
+**Kayak** est un moteur de recherche de voyages fondé en 2004 par Steve Hafner et Paul M. English.  
+Il permet aux utilisateurs de comparer des offres de vols, hôtels, locations de voiture, et plus encore, pour planifier leur voyage au meilleur prix.
+
+Depuis son rachat par **Booking Holdings**, Kayak fait partie d’un groupe qui possède également :
+- Booking.com  
+- Priceline  
+- Agoda  
+- OpenTable  
+- Rentalcars.com
+
+Avec plus de **300 millions de dollars de revenus par an**, Kayak est présent dans presque tous les pays et langues du monde, offrant une plateforme robuste pour l’organisation de voyages.
 
 ---
 
 ### Objectif du projet
 
-L'équipe marketing de **Kayak** souhaite créer une application qui recommandera les **meilleures destinations et hôtels français** en fonction :
+Suite à une étude marketing, l’équipe de **Kayak** a constaté que :
 
-- de la météo prévue dans les 7 prochains jours  
-- des meilleurs hôtels disponibles dans la région
+- **70 % des utilisateurs** aimeraient obtenir davantage d’informations utiles sur leur destination.
+- Les utilisateurs font davantage confiance à des données venant **de la marque elle-même**, plutôt qu'à des sites tiers.
+
+> L’objectif du projet est donc de créer une **application intelligente** qui recommande les **meilleures destinations et hôtels** français, à partir de **données météo et hôtelières en temps réel.**
 
 ---
 
@@ -19,7 +38,7 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 - **35 villes françaises** issues de _OneWeekIn.com_  
 - Données météo via **OpenWeatherMap API**  
-- Coordonnées via **Nominatim API**  
+- Coordonnées géographiques via **Nominatim API**  
 - Hôtels scrappés depuis **Booking.com** avec **Scrapy** :
   - Nom, coordonnées, note, description, URL
 
@@ -29,12 +48,12 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 1. **Extraction**
    - API météo (OpenWeather)
-   - Booking.com via un spider **Scrapy**
+   - Scraping des hôtels avec **Scrapy**
 2. **Nettoyage & enrichissement**
 3. **Stockage**
-   - `.csv` enrichi stocké sur **AWS S3**
+   - Fichier `.csv` enrichi sur **AWS S3**
 4. **Chargement**
-   - Données chargées dans une **base PostgreSQL (AWS RDS)**
+   - Données importées dans **PostgreSQL (AWS RDS)**
 
 ---
 
@@ -43,14 +62,14 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 #### Carte 1 : Top 5 des villes météo
 
 - Réalisée avec **Plotly Express**
-- Affiche les villes les plus "ensoleillées"
-- Utilise un **score météo personnalisé** basé sur température, humidité, pluie, etc.
+- Affiche les villes ayant le meilleur score météo
+- Score basé sur température, humidité, pluie, etc.
 
-#### Carte 2 : Top hôtels par ville (Streamlit)
+#### Carte 2 : Top hôtels par ville
 
 - Interface **Streamlit** avec **Folium**
-- Sélection d'une ville → affichage dynamique des meilleurs hôtels  
-- Chaque hôtel contient :
+- Sélection de ville → affichage des meilleurs hôtels disponibles
+- Chaque hôtel inclut :
   - Nom
   - Note
   - Description
@@ -63,38 +82,35 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 | Outil / Tech       | Rôle                              |
 |--------------------|-----------------------------------|
 | Python             | Langage principal                 |
-| Pandas             | Traitement de données             |
-| Requests           | Appels API météo et géocodage     |
+| Pandas             | Manipulation des données          |
+| Requests           | Appels API (météo, géocodage)     |
 | Scrapy             | Scraping structuré Booking.com    |
-| Plotly             | Carte des meilleures destinations |
-| Folium             | Carte hôtelière dynamique         |
-| Streamlit          | Application web interactive       |
-| AWS S3             | Stockage des données brutes       |
-| AWS RDS (Postgres) | Entrepôt de données SQL           |
+| Plotly             | Visualisation météo               |
+| Folium             | Carte hôtelière interactive       |
+| Streamlit          | Interface utilisateur web         |
+| AWS S3             | Stockage de données brutes        |
+| AWS RDS (Postgres) | Base de données relationnelle     |
 
 ---
 
 ### Livrables
 
-- Un fichier `.csv` dans un bucket **AWS S3** contenant les données météo + hôtels enrichies  
-- Une **base SQL PostgreSQL** (hébergée sur **AWS RDS**) contenant les mêmes données  
-- Deux cartes interactives :
-  - **Top 5 des destinations météo** (24/04/2025 au 30/04/2025)
-  - **Top 20 hôtels** répartis sur 35 villes françaises
+- Un fichier `.csv` enrichi disponible sur un bucket **AWS S3**
+- Une base PostgreSQL contenant les mêmes données nettoyées
+- Deux cartes :
+  - **Top 5 des destinations météo** (24/04/2025 - 30/04/2025)
+  - **Top 20 hôtels** pour 35 villes analysées
 
 ---
 
 ### Critères d’évaluation de l’infrastructure
 
-- **Simplicité et cohérence du projet d'infrastructure**
-- **Capacité de stockage suffisante pour un projet Big Data**
-- **Optimisation des coûts liés à la collecte, au stockage et à l'exploitation des données**
-- **Qualité des données extraites du Web vers le Data Lake (scraping, APIs)**
-- **Accessibilité rapide et fiable des données depuis le Data Warehouse**
-- **Robustesse et efficacité du pipeline ETL conçu**
-- **Conformité du processus de collecte aux normes RGPD**, notamment sur :
-  - la nature des données collectées
-  - leur stockage et leur utilisation
-  - la protection de la vie privée des utilisateurs
+- **Simplicité et clarté du projet d'infrastructure**
+- **Capacité de stockage suffisante pour des volumes importants (Big Data ready)**
+- **Coût maîtrisé des solutions déployées (stockage, calcul, API)**
+- **Qualité des données extraites (exhaustivité, précision, structure)**
+- **Accessibilité et rapidité d’accès aux données stockées**
+- **Fiabilité du pipeline ETL mis en place**
+- **Conformité RGPD sur les données utilisateur collectées**
 
 ---
