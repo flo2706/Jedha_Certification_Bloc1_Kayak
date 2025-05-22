@@ -1,9 +1,9 @@
-# Jedha's ML Engineer certificate - Bloc 1 : Build & Manage a Data Infrastructure 
-<h1 align="center">Plan your trip with Kaya</h1>
+<h1 align="center">Jedha's ML Engineer certificate - Bloc 1 : Build & Manage a Data Infrastructure<h1>
+<h2 align="center">Plan your trip with Kaya</h2>
 
 ---
 
-## Objectif du projet
+<h3>Objectif du projet</h3>
 
 L'équipe marketing de **Kayak** souhaite créer une application qui recommandera les **meilleurs destinations et hôtels français** en fonction :
 
@@ -12,7 +12,7 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 ---
 
-## Données utilisées
+<h3>Données utilisées</h3>
 
 - **35 villes françaises** issues de _OneWeekIn.com_
 - Données météo via **OpenWeatherMap API**
@@ -22,7 +22,7 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 ---
 
-## Pipeline ETL
+<h3>Pipeline ETL</h3>
 
 1. **Extraction**
    - API météo (OpenWeather)
@@ -35,15 +35,15 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 ---
 
-## Visualisation des résultats
+<h3>Visualisation des résultats</h3>
 
-### Carte 1 : Top 5 des villes météo
+<h4>Carte 1 : Top 5 des villes météo</h4>
 
 - Créée avec **Plotly Express**
 - Affiche les villes les plus "ensoleillées"
 - Utilise un **score météo personnalisé** basé sur température, humidité, pluie, etc.
 
-### Carte 2 : Top hôtels par ville (Streamlit)
+<h4>Carte 2 : Top hôtels par ville (Streamlit)</h4>
 
 - Interface **Streamlit** avec **Folium**
 - Sélection d'une ville → affichage des meilleurs hôtels (avec note disponible)
@@ -55,7 +55,7 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 ---
 
-## Technologies utilisées
+<h3>Technologies utilisées</h3>
 
 | Outil / Tech       | Rôle                              |
 | ------------------ | --------------------------------- |
@@ -71,7 +71,7 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 ---
 
-## Livrables
+<h3>Livrables</h3>
 
 - Un fichier .csv dans un bucket S3 contenant des info enrichies sur la météo et les hôtels pour chaque ville française (code + captures d'écran (livrable - bucketS3))
 - Une DB SQL Où l'on obtient les mêmes data nettoyées à partir de S3 (code + captures d'écran (livrable - DB))
