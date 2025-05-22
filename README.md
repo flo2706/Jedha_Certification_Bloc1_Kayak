@@ -5,10 +5,10 @@
 
 ## Objectif du projet
 
-L'équipe marketing de **Kayak** souhaite créer une application qui recommandera les **meilleures destinations et hôtels français** en fonction :
+L'équipe marketing de **Kayak** souhaite créer une application qui recommandera les **meilleurs destinations et hôtels français** en fonction :
 
 - de la météo prévue dans les 7 prochains jours
-- des meilleurs hôtels de la région disponibles
+- des meilleurs hôtels disponibles de la région 
 
 ---
 
@@ -52,7 +52,6 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
   - Note
   - Description
   - 🔗 Lien vers Booking.com
-- Une **tableau complémentaire** liste les hôtels avec liens cliquables
 
 ---
 
@@ -74,9 +73,8 @@ L'équipe marketing de **Kayak** souhaite créer une application qui recommander
 
 ## Livrables
 
-- `hotels_weather_final.csv` : données enrichies
-- `app.py` : application Streamlit avec carte des hôtels
-- `scrapy_spider.py` : spider pour Booking.com (hôtels)
-- `ETL scripts` : extraction, nettoyage, upload vers S3
+- Un fichier .csv dans un bucket S3 contenant des info enrichies sur la météo et les hôtels pour chaque ville française (code + captures d'écran (livrable - bucketS3))
+- Une DB SQL Où l'on obtient les mêmes data nettoyées à partir de S3 (code + captures d'écran (livrable - DB))
+- 2 cartes contenant un top 5 des destinations (du 24/04/2025 au 30/04/2025) et un top 20 des hôtels des 35 villes (livrable - maps))
 
 ---
