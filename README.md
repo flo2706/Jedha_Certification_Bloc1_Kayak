@@ -1,4 +1,4 @@
-<h1 align="center">Jedha's ML Engineer certificate - Bloc 1 : Build & Manage a Data Infrastructure<h1>
+<h1 align="center">Jedha's ML Engineer certificate</br>Bloc 1 : Build & Manage a Data Infrastructure<h1>
 <h2 align="center">Plan your trip with Kaya</h2>
 
 ---
